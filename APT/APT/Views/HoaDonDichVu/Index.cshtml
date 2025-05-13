@@ -250,8 +250,7 @@
                                 @if (User.IsInRole("Ban quản lý"))
                                 {
                                     <a asp-action="Duyet" asp-route-id="@item.ID" class="btn btn-warning btn-sm">Duyệt</a>
-                                    <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger btn-sm"
-                                       onclick="return confirm('Bạn có chắc muốn xóa hóa đơn này?');">Xóa</a>
+                                
                                 }
 
                                 @if (User.IsInRole("Cư dân") && item.TrangThai == "Chưa thanh toán")

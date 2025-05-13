@@ -193,7 +193,7 @@ namespace QLCCCC.Controllers
         ";
 
                 // Gửi email
-                await _emailService.SendEmailAsync("duongthanhphong1618@gmail.com", subject, body);
+                await _emailService.SendEmailAsync("webaptgroup@gmail", subject, body);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -363,7 +363,7 @@ namespace QLCCCC.Controllers
 
             try
             {
-                await _emailService.SendEmailAsync(userEmail, subject, body, "duongthanhphong1618@gmail.com");
+                await _emailService.SendEmailAsync(userEmail, subject, body, "webaptgroup@gmail");
             }
             catch (Exception ex)
             {
