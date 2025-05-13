@@ -325,7 +325,7 @@
         .chatbot-button {
             position: fixed;
             bottom: 20px;
-            right: 20px;
+            right: 10px;
             background: linear-gradient(135deg, #e67e22, #d35400);
             color: #fff;
             width: 60px;
@@ -496,6 +496,7 @@
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <i class="fas fa-building"></i> APT Management
                 </a>
+                @await Component.InvokeAsync("Weather")
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -556,6 +557,10 @@
                 </div>
             </div>
         </nav>
+      
+
+
+
     </header>
 
     <div class="container">
@@ -565,6 +570,7 @@
             </main>
         </div>
     </div>
+    
 
     <!-- Chatbot Button -->
     <div class="chatbot-button" id="chatbotToggle">
