@@ -303,7 +303,7 @@ namespace QLCCCC.Controllers
 
             try
             {
-                await _emailService.SendEmailAsync(user.Email, subject, body, "duongthanhphong1618@gmail.com");
+                await _emailService.SendEmailAsync(user.Email, subject, body, "webaptgroup@gmail");
             }
             catch (Exception ex)
             {
