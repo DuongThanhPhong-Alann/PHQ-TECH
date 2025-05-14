@@ -36,7 +36,8 @@
         </select>
     </div>
 
-    <button type="submit" class="btn btn-warning">Cập Nhật</button>
+    <button type="submit" class="btn custom-btn-blue">Cập Nhật</button>
+
 </form>
 
 <!-- AJAX để load danh sách Căn Hộ -->
@@ -67,3 +68,19 @@
         });
     });
 </script>
+<style>
+    .custom-btn-blue {
+        background-color: #0288d1; /* Màu xanh dương đậm */
+        color: #fff; /* Màu chữ trắng */
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+
+        .custom-btn-blue:hover {
+            background-color: #0277bd; /* Màu xanh dương đậm hơn khi hover */
+        }
+
+</style>

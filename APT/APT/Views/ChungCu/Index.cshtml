@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <style>
         body {
-            background: linear-gradient(to right, #fdf6e4, #fbe7c6);
+            background: linear-gradient(to right, #e0f7fa, #b2ebf2);
             font-family: 'Arial', sans-serif;
-            color: #8d5524;
+            color: #0a3d62;
         }
 
         .container {
@@ -63,7 +63,7 @@
             }
 
         .btn-primary {
-            background: linear-gradient(135deg, #e67e22, #d35400);
+            background: linear-gradient(135deg, #3498db, #2980b9);
             border: none;
             padding: 10px 20px;
             font-weight: 600;
@@ -73,7 +73,7 @@
         }
 
             .btn-primary:hover {
-                background: linear-gradient(135deg, #d35400, #c0392b);
+                background: linear-gradient(135deg, #2980b9, #2471a3);
                 transform: translateY(-2px);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 color: #fff;
@@ -84,25 +84,25 @@
             border-collapse: separate;
             border-spacing: 0;
             background-color: #fff;
-            border: 1px solid #f5e6cc;
+            border: 1px solid #d0eafc;
             border-radius: 8px;
             overflow: hidden;
         }
 
             .table thead th {
-                background: linear-gradient(135deg, #f5cba8, #e67e22);
+                background: linear-gradient(135deg, #5dade2, #3498db);
                 color: #fff;
                 font-weight: 600;
                 padding: 15px;
                 text-align: left;
-                border-bottom: 2px solid #d35400;
+                border-bottom: 2px solid #2e86c1;
             }
 
             .table tbody td {
                 padding: 15px;
                 font-size: 1rem;
-                color: #8d5524;
-                border-bottom: 1px solid #f5e6cc;
+                color: #0a3d62;
+                border-bottom: 1px solid #d0eafc;
                 background-color: #ffffff;
                 transition: background-color 0.3s ease;
             }
@@ -112,7 +112,7 @@
             }
 
             .table tbody tr:hover td {
-                background-color: #fef9f2;
+                background-color: #eaf6fb;
             }
 
         .btn-sm {
@@ -123,40 +123,40 @@
         }
 
         .btn-info {
-            background-color: #e67e22;
-            border-color: #e67e22;
+            background-color: #3498db;
+            border-color: #3498db;
             color: #fff;
         }
 
             .btn-info:hover {
-                background-color: #d35400;
-                border-color: #d35400;
+                background-color: #2e86c1;
+                border-color: #2e86c1;
                 transform: translateY(-2px);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
 
         .btn-warning {
-            background-color: #f1c40f;
-            border-color: #f1c40f;
+            background-color: #1abc9c;
+            border-color: #1abc9c;
             color: #fff;
         }
 
             .btn-warning:hover {
-                background-color: #e2b307;
-                border-color: #e2b307;
+                background-color: #17a589;
+                border-color: #17a589;
                 transform: translateY(-2px);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
 
         .btn-danger {
-            background-color: #c0392b;
-            border-color: #c0392b;
+            background-color: #e74c3c;
+            border-color: #e74c3c;
             color: #fff;
         }
 
             .btn-danger:hover {
-                background-color: #e74c3c;
-                border-color: #e74c3c;
+                background-color: #c0392b;
+                border-color: #c0392b;
                 transform: translateY(-2px);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
@@ -165,13 +165,13 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px; /* Giảm khoảng cách giữa các ô để phù hợp với 4 ô trên 1 hàng */
+            gap: 20px;
             padding: 20px 0;
         }
 
         .col-md-4 {
-            flex: 0 0 25%; /* Thay đổi từ 33.33% thành 25% để hiển thị 4 ô trên 1 hàng */
-            max-width: 25%; /* Thay đổi từ 33.33% thành 25% */
+            flex: 0 0 25%;
+            max-width: 25%;
             display: flex;
             justify-content: center;
         }
@@ -179,7 +179,7 @@
         .info-box {
             position: relative;
             width: 100%;
-            height: 280px; /* Giảm chiều cao để phù hợp với 4 ô trên 1 hàng */
+            height: 280px;
             border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -215,14 +215,14 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 15px; /* Giảm padding để phù hợp với kích thước nhỏ hơn */
-            background: rgba(0, 0, 0, 0.4);
+            padding: 15px;
+            background: rgba(0, 0, 50, 0.4);
             color: #fff;
             text-align: left;
         }
 
         .info-box h5 {
-            font-size: 1.4rem; /* Giảm kích thước chữ để phù hợp với ô nhỏ hơn */
+            font-size: 1.4rem;
             font-weight: 600;
             color: #fff;
             margin-bottom: 8px;
@@ -230,9 +230,9 @@
         }
 
         .info-box p {
-            font-size: 0.9rem; /* Giảm kích thước chữ để phù hợp với ô nhỏ hơn */
+            font-size: 0.9rem;
             color: #f5f5f5;
-            margin: 3px 0; /* Giảm khoảng cách giữa các dòng */
+            margin: 3px 0;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
@@ -240,6 +240,7 @@
                 color: #fff;
             }
     </style>
+
 </head>
 <body>
     <div class="container">

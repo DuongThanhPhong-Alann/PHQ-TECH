@@ -12,9 +12,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <style>
         body {
-            background: linear-gradient(to right, #fdf6e4, #fef9f2);
+            background: linear-gradient( 135deg, #cfe9ff 0%, /* Xanh nhạt pastel 1 */
+            #a2c8ff 15%, /* Xanh nhạt pastel 2 */
+            #89b7f8 30%, /* Xanh nhạt pastel 3 */
+            #77a6f1 45%, /* Xanh nhạt pastel 4 */
+            #89b7f8 60%, /* Xanh nhạt pastel 3 */
+            #a2c8ff 75%, /* Xanh nhạt pastel 2 */
+            #cfe9ff 100% /* Xanh nhạt pastel 1 */
+            );
             font-family: 'Arial', sans-serif;
-            color: #5d4037;
+            color: #003366; /* Xanh dương đậm */
             margin: 0;
             padding: 0;
             line-height: 1.6;
@@ -37,7 +44,7 @@
         .navbar-brand {
             font-weight: 700;
             font-size: 2rem;
-            color: #d35400 !important;
+            color: #003366 !important; /* Xanh dương đậm */
             letter-spacing: 1px;
             transition: all 0.3s ease;
             display: flex;
@@ -45,7 +52,7 @@
         }
 
             .navbar-brand:hover {
-                color: #e67e22 !important;
+                color: #004b87 !important; /* Xanh dương đậm khi hover */
                 transform: scale(1.03);
             }
 
@@ -54,7 +61,7 @@
             }
 
         .nav-link {
-            color: #5d4037 !important;
+            color: #003366 !important; /* Xanh dương đậm */
             font-weight: 500;
             padding: 8px 18px;
             text-transform: uppercase;
@@ -64,8 +71,8 @@
         }
 
             .nav-link:hover {
-                color: #d35400 !important;
-                background: #f5e6cc;
+                color: #0073e6 !important; /* Xanh dương sáng khi hover */
+                background: #e6f7ff;
                 border-radius: 5px;
             }
 
@@ -76,7 +83,7 @@
                 height: 2px;
                 bottom: 4px;
                 left: 18px;
-                background: #d35400;
+                background: #003366;
                 transition: width 0.3s ease;
             }
 
@@ -85,15 +92,15 @@
             }
 
         .navbar-center .nav-link {
-            color: #d35400 !important;
+            color: #003366 !important; /* Xanh dương đậm */
         }
 
             .navbar-center .nav-link:hover {
-                color: #e67e22 !important;
+                color: #0073e6 !important; /* Xanh dương sáng khi hover */
             }
 
         .navbar-text {
-            color: #5d4037;
+            color: #003366;
             font-size: 1rem;
             margin-right: 12px;
             font-style: italic;
@@ -110,25 +117,25 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #e67e22, #d35400);
+            background: linear-gradient(135deg, #0073e6, #003366); /* Màu xanh dương đậm */
             border: none;
             color: #fff;
         }
 
             .btn-primary:hover {
-                background: linear-gradient(135deg, #d35400, #c0392b);
+                background: linear-gradient(135deg, #003366, #004b87); /* Màu xanh dương sáng khi hover */
                 transform: translateY(-2px);
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             }
 
         .btn-danger {
-            background: linear-gradient(135deg, #c0392b, #e74c3c);
+            background: linear-gradient(135deg,#0073e6, #003366);
             border: none;
             color: #fff;
         }
 
             .btn-danger:hover {
-                background: linear-gradient(135deg, #e74c3c, #c0392b);
+                background: linear-gradient(135deg,#0073e6, #003366);
                 transform: translateY(-2px);
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             }
@@ -167,11 +174,11 @@
             }
 
         .footer {
-            background: linear-gradient(135deg, #5d4037, #8d5524);
-            color: #f5e6cc;
+            background: linear-gradient(135deg, #003366, #004b87); /* Màu xanh dương đậm */
+            color: #ffffff;
             padding: 20px 0;
             font-size: 0.9rem;
-            border-top: 3px solid #f5cba8;
+            border-top: 3px solid #cce6ff; /* Màu sáng của xanh dương */
             position: relative;
         }
 
@@ -197,7 +204,7 @@
             }
 
                 .footer .contact-box h2, .footer .map-box h3, .footer .social-box h3 {
-                    color: #f5e6cc;
+                    color: #ffffff;
                     margin-bottom: 10px;
                     font-weight: 600;
                     font-size: 1.2rem;
@@ -223,17 +230,17 @@
                 }
 
                 .footer .contact-info strong {
-                    color: #e67e22;
+                    color: #0073e6;
                 }
 
                 .footer .contact-info a {
-                    color: #f5e6cc;
+                    color: #ffffff;
                     text-decoration: none;
                     transition: color 0.3s ease;
                 }
 
                     .footer .contact-info a:hover {
-                        color: #e67e22;
+                        color: #0073e6;
                     }
 
             .footer .social-links {
@@ -248,7 +255,7 @@
                 align-items: center;
                 padding: 6px 12px;
                 background: #ffffff;
-                color: #5d4037;
+                color: #003366;
                 text-decoration: none;
                 border-radius: 20px;
                 font-size: 0.75rem;
@@ -301,18 +308,18 @@
                 transform: translateX(-50%);
                 width: 50px;
                 height: 2px;
-                background: #e67e22;
+                background: #0073e6;
             }
 
             .footer .copyright {
                 text-align: center;
                 margin-top: 15px;
                 font-size: 0.75rem;
-                color: #f5e6cc;
+                color: #ffffff;
             }
 
                 .footer .copyright a {
-                    color: #e67e22;
+                    color: #0073e6;
                     text-decoration: none;
                     transition: color 0.3s ease;
                 }
@@ -326,7 +333,7 @@
             position: fixed;
             bottom: 20px;
             right: 10px;
-            background: linear-gradient(135deg, #e67e22, #d35400);
+            background: linear-gradient(135deg, #1e3a8a, #1d4ed8); /* Xanh dương đậm */
             color: #fff;
             width: 60px;
             height: 60px;
@@ -341,7 +348,7 @@
         }
 
             .chatbot-button:hover {
-                background: linear-gradient(135deg, #d35400, #c0392b);
+                background: linear-gradient(135deg, #1d4ed8, #2563eb); /* Xanh dương sáng */
                 transform: scale(1.1);
                 box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
             }
@@ -371,7 +378,7 @@
             }
 
         .chatbot-header {
-            background: linear-gradient(135deg, #e67e22, #d35400);
+            background: linear-gradient(135deg, #1e3a8a, #1d4ed8); /* Xanh dương đậm */
             color: #fff;
             padding: 10px 15px;
             font-size: 1.1rem;
@@ -389,7 +396,7 @@
             flex-grow: 1;
             padding: 15px;
             overflow-y: auto;
-            background: #f5e6cc;
+            background: #e0f2ff; /* Màu nền nhẹ cho khu vực tin nhắn */
         }
 
         .chatbot-message {
@@ -402,7 +409,7 @@
         }
 
             .chatbot-message.user {
-                background: #d35400;
+                background: #1d4ed8; /* Màu xanh dương đậm */
                 color: #fff;
                 margin-left: auto;
                 border-bottom-right-radius: 2px;
@@ -410,13 +417,13 @@
 
             .chatbot-message.bot {
                 background: #ffffff;
-                color: #5d4037;
+                color: #1d4ed8; /* Màu xanh dương đậm */
                 border-bottom-left-radius: 2px;
             }
 
             .chatbot-message.loading {
-                background: #f5e6cc;
-                color: #d35400;
+                background: #e0f2ff; /* Màu nền nhẹ cho tin nhắn đang tải */
+                color: #1d4ed8; /* Xanh dương đậm */
                 font-style: italic;
             }
 
@@ -435,8 +442,8 @@
 
         .chatbot-option-btn {
             background: #ffffff;
-            color: #d35400;
-            border: 1px solid #d35400;
+            color: #1d4ed8; /* Xanh dương đậm */
+            border: 1px solid #1d4ed8;
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -445,7 +452,7 @@
         }
 
             .chatbot-option-btn:hover {
-                background: #d35400;
+                background: #1d4ed8; /* Màu xanh dương đậm khi hover */
                 color: #fff;
                 transform: translateY(-1px);
             }
@@ -453,13 +460,13 @@
         .chatbot-footer {
             padding: 10px;
             background: #ffffff;
-            border-top: 1px solid #f5e6cc;
+            border-top: 1px solid #e0f2ff; /* Màu nền nhẹ cho chân chatbot */
         }
 
         .chatbot-input {
             width: 100%;
             padding: 8px 12px;
-            border: 1px solid #d35400;
+            border: 1px solid #1d4ed8; /* Xanh dương đậm */
             border-radius: 20px;
             font-size: 0.9rem;
             outline: none;
@@ -467,12 +474,12 @@
         }
 
             .chatbot-input:focus {
-                border-color: #e67e22;
-                box-shadow: 0 0 5px rgba(227, 126, 34, 0.3);
+                border-color: #2563eb; /* Xanh dương sáng khi focus */
+                box-shadow: 0 0 5px rgba(38, 99, 235, 0.3);
             }
 
         .chatbot-send-btn {
-            background: #d35400;
+            background: #1d4ed8; /* Xanh dương đậm */
             color: #fff;
             border: none;
             padding: 8px 15px;
@@ -484,7 +491,7 @@
         }
 
             .chatbot-send-btn:hover {
-                background: #e67e22;
+                background: #2563eb; /* Xanh dương sáng khi hover */
                 transform: translateY(-1px);
             }
     </style>

@@ -75,14 +75,22 @@ namespace QLCCCC.Controllers
             _context.CuDans.Add(cuDan);
             await _context.SaveChangesAsync(); // Lưu trước để có ID của CuDan
 
-            // Cập nhật lại NguoiDung.CuDan
+            
+            // Cập nhật lại NguoiDung: gán CuDan và nâng từ Khách => Cư dân nếu cần
             var nguoiDung = await _context.NguoiDungs.FindAsync(cuDan.ID_NguoiDung);
             if (nguoiDung != null)
             {
                 nguoiDung.CuDan = cuDan;
+
+                if (nguoiDung.LoaiNguoiDung == "Khách")
+                {
+                    nguoiDung.LoaiNguoiDung = "Cư dân";
+                }
+
                 _context.Update(nguoiDung);
                 await _context.SaveChangesAsync();
             }
+
 
             return RedirectToAction(nameof(Index));
         }
@@ -162,11 +170,19 @@ namespace QLCCCC.Controllers
 
             if (cuDan == null) return NotFound();
 
-            // Nếu người dùng là cư dân => cập nhật lại thành khách
+            // ✅ Kiểm tra xem cư dân này có là chủ hộ không
+            var isChuHo = await _context.ChuHos.AnyAsync(ch => ch.ID_CuDan == id);
+            if (isChuHo)
+            {
+                TempData["ErrorMessage"] = "Cư dân hiện tại đang là chủ hộ, bạn không thể thực hiện hành động xóa.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            // Nếu là cư dân thì hạ xuống thành khách
             if (cuDan.NguoiDung != null && cuDan.NguoiDung.LoaiNguoiDung == "Cư dân")
             {
                 cuDan.NguoiDung.LoaiNguoiDung = "Khách";
-                cuDan.NguoiDung.CuDan = null; // Gỡ liên kết nếu có
+                cuDan.NguoiDung.CuDan = null;
                 _context.Update(cuDan.NguoiDung);
             }
 
@@ -174,6 +190,7 @@ namespace QLCCCC.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
         [HttpGet]
         public async Task<IActionResult> GetNguoiDungById(int nguoiDungId)
         {

@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <style>
         body {
-            background: linear-gradient(to right, #fdf6e4, #fbe7c6);
+            background: linear-gradient(to right, #e0f7fa, #b3e5fc); /* Nền xanh dương sáng */
             font-family: 'Arial', sans-serif;
-            color: #8d5524;
+            color: #0277bd; /* Màu chữ chính: xanh dương */
         }
 
         .container {
@@ -62,7 +62,7 @@
             }
 
         .btn-primary {
-            background: linear-gradient(135deg, #e67e22, #d35400);
+            background: linear-gradient(135deg, #0288d1, #039be5); /* Xanh dương gradient */
             border: none;
             padding: 10px 20px;
             font-weight: 600;
@@ -72,7 +72,7 @@
         }
 
             .btn-primary:hover {
-                background: linear-gradient(135deg, #d35400, #c0392b);
+                background: linear-gradient(135deg, #039be5, #0288d1); /* Xanh dương gradient hover */
                 transform: translateY(-2px);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 color: #fff;
@@ -83,25 +83,25 @@
             border-collapse: separate;
             border-spacing: 0;
             background-color: #fff;
-            border: 1px solid #f5e6cc;
+            border: 1px solid #b3e5fc;
             border-radius: 8px;
             overflow: hidden;
         }
 
             .table thead th {
-                background: linear-gradient(135deg, #f5cba8, #e67e22);
+                background: linear-gradient(135deg, #4fc3f7, #0288d1); /* Màu xanh dương đậm cho tiêu đề */
                 color: #fff;
                 font-weight: 600;
                 padding: 15px;
                 text-align: left;
-                border-bottom: 2px solid #d35400;
+                border-bottom: 2px solid #0277bd;
             }
 
             .table tbody td {
                 padding: 15px;
                 font-size: 1rem;
-                color: #8d5524;
-                border-bottom: 1px solid #f5e6cc;
+                color: #0277bd;
+                border-bottom: 1px solid #b3e5fc;
                 background-color: #ffffff;
                 transition: background-color 0.3s ease;
             }
@@ -111,7 +111,7 @@
             }
 
             .table tbody tr:hover td {
-                background-color: #fef9f2;
+                background-color: #e1f5fe;
             }
 
         .btn-sm {
@@ -122,40 +122,40 @@
         }
 
         .btn-info {
-            background-color: #e67e22;
-            border-color: #e67e22;
+            background-color: #0288d1; /* Xanh dương cho nút chi tiết */
+            border-color: #0288d1;
             color: #fff;
         }
 
             .btn-info:hover {
-                background-color: #d35400;
-                border-color: #d35400;
+                background-color: #039be5; /* Xanh dương nhạt khi hover */
+                border-color: #039be5;
                 transform: translateY(-2px);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
 
         .btn-warning {
-            background-color: #f1c40f;
-            border-color: #f1c40f;
+            background-color: #fbc02d;
+            border-color: #fbc02d;
             color: #fff;
         }
 
             .btn-warning:hover {
-                background-color: #e2b307;
-                border-color: #e2b307;
+                background-color: #f9a825;
+                border-color: #f9a825;
                 transform: translateY(-2px);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
 
         .btn-danger {
-            background-color: #c0392b;
-            border-color: #c0392b;
+            background-color: #e53935;
+            border-color: #e53935;
             color: #fff;
         }
 
             .btn-danger:hover {
-                background-color: #e74c3c;
-                border-color: #e74c3c;
+                background-color: #d32f2f;
+                border-color: #d32f2f;
                 transform: translateY(-2px);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
@@ -234,6 +234,7 @@
                 color: #fff;
             }
     </style>
+
 </head>
 <body>
     <div class="container">
