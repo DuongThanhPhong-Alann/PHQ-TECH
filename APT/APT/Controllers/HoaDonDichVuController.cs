@@ -21,14 +21,35 @@ namespace QLCCCC.Controllers
         // GET: HoaDonDichVu
         public async Task<IActionResult> Index()
         {
-            var hoaDonDichVus = await _context.HoaDonDichVus
+            // Lấy ID người dùng từ Claims
+            var userIdString = User.FindFirst("UserId")?.Value;
+
+            if (string.IsNullOrEmpty(userIdString))
+                return Unauthorized(); // Trả về lỗi 401 nếu không tìm thấy ID người dùng trong Claims
+
+            int userId = int.Parse(userIdString);
+
+            IQueryable<HoaDonDichVu> query = _context.HoaDonDichVus
                 .Include(h => h.CanHo)  // Bao gồm thông tin căn hộ
                     .ThenInclude(c => c.ChungCu)  // Bao gồm thông tin chung cư từ căn hộ
                 .Include(h => h.HoaDonDichVu_DichVus)
                     .ThenInclude(hdv => hdv.DichVu)
-                .AsNoTracking()
-                .ToListAsync();
+                .AsNoTracking();
 
+            if (User.IsInRole("Cư dân"))
+            {
+                // Nếu người dùng là Cư dân, chỉ hiển thị hóa đơn của căn hộ và chung cư của họ
+                var cuDan = await _context.CuDans
+                    .FirstOrDefaultAsync(cd => cd.ID_NguoiDung == userId);
+
+                if (cuDan != null)
+                {
+                    // Lọc hóa đơn theo mã căn hộ và mã chung cư của cư dân
+                    query = query.Where(h => h.ID_CanHo == cuDan.ID_CanHo && h.ID_ChungCu == cuDan.ID_ChungCu);
+                }
+            }
+
+            var hoaDonDichVus = await query.ToListAsync();
             return View(hoaDonDichVus);
         }
 

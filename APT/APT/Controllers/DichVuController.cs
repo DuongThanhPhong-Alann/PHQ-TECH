@@ -289,21 +289,60 @@ namespace QLCCCC.Controllers
 
             // ✉️ Soạn nội dung mail
             var subject = "Xác nhận đăng ký dịch vụ thành công";
+            var chungCu = await _context.ChungCus.FindAsync(request.IdChungCu);
+            var canHo = await _context.CanHos.FindAsync(request.IdCanHo);
             var body = $@"
-        <p>Xin chào <strong>{user.HoTen}</strong>,</p>
-        <p>Bạn đã đăng ký dịch vụ <strong>{dichVu.TenDichVu}</strong> thành công!</p>
-        <table style='border-collapse: collapse; width: 100%;'>
-            <tr><td style='border: 1px solid #ddd; padding: 8px;'><strong>Dịch vụ:</strong></td><td style='border: 1px solid #ddd; padding: 8px;'>{dichVu.TenDichVu}</td></tr>
-            <tr><td style='border: 1px solid #ddd; padding: 8px;'><strong>Số tiền:</strong></td><td style='border: 1px solid #ddd; padding: 8px;'>{request.SoTien:N0} VND</td></tr>
-            <tr><td style='border: 1px solid #ddd; padding: 8px;'><strong>Ngày đăng ký:</strong></td><td style='border: 1px solid #ddd; padding: 8px;'>{DateTime.Now:HH:mm dd/MM/yyyy}</td></tr>
+    <div style='font-family: Arial, sans-serif; color: #333;'>
+        <h2 style='color: #2E86C1;'>Xác nhận đăng ký dịch vụ</h2>
+        <p>Xin chào <strong style='color: #117A65;'>{user.HoTen}</strong>,</p>
+        <p>Bạn đã đăng ký dịch vụ <strong style='color: #D35400;'>{dichVu.TenDichVu}</strong> thành công!</p>
+
+        <table style='border-collapse: collapse; width: 100%; max-width: 600px;'>
+            <tbody>
+                <tr style='background-color: #E8F8F5;'>
+                    <td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Dịch vụ</td>
+                    <td style='border: 1px solid #ddd; padding: 8px;'>{dichVu.TenDichVu}</td>
+                </tr>
+                <tr>
+                    <td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Số tiền</td>
+                    <td style='border: 1px solid #ddd; padding: 8px;'>{request.SoTien:N0} VND</td>
+                </tr>
+                <tr style='background-color: #E8F8F5;'>
+                    <td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Ngày đăng ký</td>
+                    <td style='border: 1px solid #ddd; padding: 8px;'>{DateTime.Now:HH:mm dd/MM/yyyy}</td>
+                </tr>
+                <tr>
+                    <td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Tên chung cư</td>
+                    <td style='border: 1px solid #ddd; padding: 8px;'>{chungCu?.Ten ?? "Không có thông tin"}</td>
+                </tr>
+                <tr style='background-color: #E8F8F5;'>
+                    <td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Số tầng</td>
+                    <td style='border: 1px solid #ddd; padding: 8px;'>{chungCu?.SoTang ?? 0}</td>
+                </tr>
+                <tr>
+                    <td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Số phòng</td>
+                    <td style='border: 1px solid #ddd; padding: 8px;'>{canHo?.SoPhong ?? 0}</td>
+                </tr>
+                <tr style='background-color: #D6EAF8;'>
+                <td style='border: 1px solid #bbb; padding: 10px; font-weight: bold; color: #1B4F72;'>Email</td>
+                <td style='border: 1px solid #bbb; padding: 10px;'>{user.Email}</td>
+            </tr>
+            <tr style='background-color: #EBF5FB;'>
+                <td style='border: 1px solid #bbb; padding: 10px; font-weight: bold; color: #1B4F72;'>Số điện thoại</td>
+                <td style='border: 1px solid #bbb; padding: 10px;'>{user.SoDienThoai}</td>
+            </tr>
+            </tbody>
         </table>
-        <p>Vui lòng thanh toán trong thời gian quy định.</p>
-        <p>Trân trọng,<br/>Ban Quản lý</p>
-    ";
+
+        <p style='margin-top: 20px;'>Vui lòng thanh toán trong thời gian quy định để sử dụng dịch vụ.</p>
+        <p>Trân trọng,<br/><strong style='color: #2E86C1;'>Ban Quản lý</strong></p>
+    </div>
+";
+
 
             try
             {
-                await _emailService.SendEmailAsync(user.Email, subject, body, "webaptgroup@gmail");
+                await _emailService.SendEmailAsync(user.Email, subject, body, "duongthanhphong1618@gmail.com");
             }
             catch (Exception ex)
             {
