@@ -143,57 +143,129 @@ namespace QLCCCC.Controllers
 
                 // Soạn nội dung email
                 var subject = "Thông báo: Cư dân gửi phản ánh mới";
+
                 var body = $@"
-            <p>Kính gửi <strong>Ban quản lý</strong>,</p>
+<html>
+<head>
+  <style>
+    body {{
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333333;
+      margin: 0; padding: 0;
+    }}
+    .container {{
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+    }}
+    h2 {{
+      color: #004085;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 10px;
+    }}
+    table {{
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }}
+    th, td {{
+      border: 1px solid #dee2e6;
+      padding: 12px 15px;
+      text-align: left;
+      vertical-align: top;
+    }}
+    th {{
+      background-color: #007bff;
+      color: #ffffff;
+    }}
+    tr:nth-child(even) {{
+      background-color: #f2f2f2;
+    }}
+    p {{
+      font-size: 14px;
+      line-height: 1.6;
+    }}
+    .footer {{
+      margin-top: 30px;
+      font-size: 12px;
+      color: #777777;
+      border-top: 1px solid #e1e1e1;
+      padding-top: 10px;
+      text-align: center;
+    }}
+  </style>
+</head>
+<body>
+  <div class='container'>
+    <h2>Thông báo phản ánh mới từ cư dân</h2>
 
-            <p>Một cư dân đã gửi phản ánh mới với thông tin chi tiết như sau:</p>
+    <p>Kính gửi <strong>Ban quản lý</strong>,</p>
 
-            <table style='border-collapse: collapse; width: 100%;'>
-                <tr>
-                    <td style='border: 1px solid #ddd; padding: 8px;'><strong>Mã cư dân:</strong></td>
-                    <td style='border: 1px solid #ddd; padding: 8px;'>{maCuDan}</td>
-                </tr>
-                <tr>
-                    <td style='border: 1px solid #ddd; padding: 8px;'><strong>Tên cư dân:</strong></td>
-                    <td style='border: 1px solid #ddd; padding: 8px;'>{tenCuDan}</td>
-                </tr>
-                <tr>
-                    <td style='border: 1px solid #ddd; padding: 8px;'><strong>Email:</strong></td>
-                    <td style='border: 1px solid #ddd; padding: 8px;'>{emailCuDan}</td>
-                </tr>
-                <tr>
-                    <td style='border: 1px solid #ddd; padding: 8px;'><strong>Mã căn hộ:</strong></td>
-                    <td style='border: 1px solid #ddd; padding: 8px;'>{maCanHo}</td>
-                </tr>
-                <tr>
-                    <td style='border: 1px solid #ddd; padding: 8px;'><strong>Chung cư:</strong></td>
-                    <td style='border: 1px solid #ddd; padding: 8px;'>{tenChungCu}</td>
-                </tr>
-                <tr>
-                    <td style='border: 1px solid #ddd; padding: 8px;'><strong>Số tầng:</strong></td>
-                    <td style='border: 1px solid #ddd; padding: 8px;'>{soTang}</td>
-                </tr>
-                <tr>
-                    <td style='border: 1px solid #ddd; padding: 8px;'><strong>Ngày gửi:</strong></td>
-                    <td style='border: 1px solid #ddd; padding: 8px;'>{phanAnh.NgayGui:HH:mm dd/MM/yyyy}</td>
-                </tr>
-                <tr>
-                    <td style='border: 1px solid #ddd; padding: 8px;'><strong>Nội dung phản ánh:</strong></td>
-                    <td style='border: 1px solid #ddd; padding: 8px;'>{phanAnh.NoiDung}</td>
-                </tr>
-                <tr>
-                    <td style='border: 1px solid #ddd; padding: 8px;'><strong>Trạng thái:</strong></td>
-                    <td style='border: 1px solid #ddd; padding: 8px;'>{phanAnh.TrangThai}</td>
-                </tr>
-            </table>
+    <p>Một cư dân đã gửi phản ánh mới với thông tin chi tiết như sau:</p>
 
-            <p>Vui lòng truy cập hệ thống để kiểm tra và xử lý phản ánh này trong thời gian sớm nhất.</p>
+    <table>
+      <tr>
+        <th>Thông tin</th>
+        <th>Chi tiết</th>
+      </tr>
+      <tr>
+        <td>Mã cư dân</td>
+        <td>{maCuDan}</td>
+      </tr>
+      <tr>
+        <td>Tên cư dân</td>
+        <td>{tenCuDan}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{emailCuDan}</td>
+      </tr>
+      <tr>
+        <td>Mã căn hộ</td>
+        <td>{maCanHo}</td>
+      </tr>
+      <tr>
+        <td>Chung cư</td>
+        <td>{tenChungCu}</td>
+      </tr>
+      <tr>
+        <td>Số tầng</td>
+        <td>{soTang}</td>
+      </tr>
+      <tr>
+        <td>Ngày gửi</td>
+        <td>{phanAnh.NgayGui:HH:mm dd/MM/yyyy}</td>
+      </tr>
+      <tr>
+        <td>Nội dung phản ánh</td>
+        <td>{phanAnh.NoiDung}</td>
+      </tr>
+      <tr>
+        <td>Trạng thái</td>
+        <td>{phanAnh.TrangThai}</td>
+      </tr>
+    </table>
 
-            <p>Trân trọng,<br/>Hệ thống quản lý cư dân</p>
-        ";
+    <p>Vui lòng truy cập hệ thống để kiểm tra và xử lý phản ánh này trong thời gian sớm nhất.</p>
+
+    <p>Trân trọng,<br/>Hệ thống quản lý cư dân</p>
+
+    <div class='footer'>
+      <p>Hệ thống quản lý cư dân - Quản lý phản ánh</p>
+      <p>Vui lòng không trả lời email này trực tiếp.</p>
+    </div>
+  </div>
+</body>
+</html>
+";
+
 
                 // Gửi email
-                await _emailService.SendEmailAsync("webaptgroup@gmail", subject, body);
+                await _emailService.SendEmailAsync("duongthanhphong1618@gmail.com", subject, body);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -332,38 +404,105 @@ namespace QLCCCC.Controllers
             var subject = "Thông báo: Phản hồi từ Ban Quản lý về phản ánh của bạn";
 
             var body = $@"
+            <html>
+            <head>
+              <style>
+                body {{
+                  font-family: Arial, sans-serif;
+                  background-color: #f9f9f9;
+                  color: #333333;
+                  margin: 0; padding: 0;
+                }}
+                .container {{
+                  max-width: 600px;
+                  margin: 20px auto;
+                  background-color: #ffffff;
+                  border-radius: 8px;
+                  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                  padding: 20px;
+                }}
+                h2 {{
+                  color: #004085;
+                  border-bottom: 2px solid #007bff;
+                  padding-bottom: 10px;
+                }}
+                table {{
+                  width: 100%;
+                  border-collapse: collapse;
+                  margin-top: 15px;
+                }}
+                th, td {{
+                  border: 1px solid #dee2e6;
+                  padding: 12px 15px;
+                  text-align: left;
+                }}
+                th {{
+                  background-color: #007bff;
+                  color: #ffffff;
+                }}
+                tr:nth-child(even) {{
+                  background-color: #f2f2f2;
+                }}
+                p {{
+                  font-size: 14px;
+                  line-height: 1.6;
+                }}
+                .footer {{
+                  margin-top: 30px;
+                  font-size: 12px;
+                  color: #777777;
+                  border-top: 1px solid #e1e1e1;
+                  padding-top: 10px;
+                  text-align: center;
+                }}
+              </style>
+            </head>
+            <body>
+              <div class='container'>
+                <h2>Phản hồi từ Ban Quản lý</h2>
                 <p>Xin chào <strong>{phanAnh.NguoiDung.HoTen}</strong>,</p>
-
                 <p>Ban Quản lý xin gửi phản hồi về phản ánh mà bạn đã gửi trước đó. Dưới đây là nội dung chi tiết:</p>
 
-                <table style='border-collapse: collapse; width: 100%;'>
-                    <tr>
-                        <td style='border: 1px solid #ddd; padding: 8px;'><strong>Ngày gửi phản ánh:</strong></td>
-                        <td style='border: 1px solid #ddd; padding: 8px;'>{phanAnh.NgayGui:HH:mm dd/MM/yyyy}</td>
-                    </tr>
-                    <tr>
-                        <td style='border: 1px solid #ddd; padding: 8px;'><strong>Nội dung phản ánh:</strong></td>
-                        <td style='border: 1px solid #ddd; padding: 8px;'>{phanAnh.NoiDung}</td>
-                    </tr>
-                    <tr>
-                        <td style='border: 1px solid #ddd; padding: 8px;'><strong>Phản hồi từ Ban Quản lý:</strong></td>
-                        <td style='border: 1px solid #ddd; padding: 8px;'>{phanHoi}</td>
-                    </tr>
-                    <tr>
-                        <td style='border: 1px solid #ddd; padding: 8px;'><strong>Trạng thái hiện tại:</strong></td>
-                        <td style='border: 1px solid #ddd; padding: 8px;'>{phanAnh.TrangThai}</td>
-                    </tr>
+                <table>
+                  <tr>
+                    <th>Thông tin</th>
+                    <th>Chi tiết</th>
+                  </tr>
+                  <tr>
+                    <td>Ngày gửi phản ánh</td>
+                    <td>{phanAnh.NgayGui:HH:mm dd/MM/yyyy}</td>
+                  </tr>
+                  <tr>
+                    <td>Nội dung phản ánh</td>
+                    <td>{phanAnh.NoiDung}</td>
+                  </tr>
+                  <tr>
+                    <td>Phản hồi từ Ban Quản lý</td>
+                    <td>{phanHoi}</td>
+                  </tr>
+                  <tr>
+                    <td>Trạng thái hiện tại</td>
+                    <td>{phanAnh.TrangThai}</td>
+                  </tr>
                 </table>
 
                 <p>Chúng tôi rất mong nhận được thêm ý kiến đóng góp từ bạn để nâng cao chất lượng dịch vụ.</p>
 
                 <p>Trân trọng,<br/>Ban Quản lý</p>
+    
+                <div class='footer'>
+                  <p>Hệ thống quản lý cư dân - Quản lý phản ánh</p>
+                  <p>Vui lòng không trả lời email này trực tiếp.</p>
+                </div>
+              </div>
+            </body>
+            </html>
             ";
 
 
             try
             {
-                await _emailService.SendEmailAsync(userEmail, subject, body, "webaptgroup@gmail");
+                await _emailService.SendEmailAsync(userEmail, subject, body, "duongthanhphong1618@gmail.com");
             }
             catch (Exception ex)
             {
