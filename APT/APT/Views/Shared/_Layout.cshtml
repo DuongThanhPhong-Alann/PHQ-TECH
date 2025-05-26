@@ -1,5 +1,4 @@
 ﻿@using System.Security.Claims;
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -10,491 +9,6 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/QLCCCC.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <style>
-        body {
-            background: linear-gradient( 135deg, #cfe9ff 0%, /* Xanh nhạt pastel 1 */
-            #a2c8ff 15%, /* Xanh nhạt pastel 2 */
-            #89b7f8 30%, /* Xanh nhạt pastel 3 */
-            #77a6f1 45%, /* Xanh nhạt pastel 4 */
-            #89b7f8 60%, /* Xanh nhạt pastel 3 */
-            #a2c8ff 75%, /* Xanh nhạt pastel 2 */
-            #cfe9ff 100% /* Xanh nhạt pastel 1 */
-            );
-            font-family: 'Arial', sans-serif;
-            color: #003366; /* Xanh dương đậm */
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        .navbar {
-            background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            padding: 10px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-            .navbar:hover {
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            }
-
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 2rem;
-            color: #003366 !important; /* Xanh dương đậm */
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-
-            .navbar-brand:hover {
-                color: #004b87 !important; /* Xanh dương đậm khi hover */
-                transform: scale(1.03);
-            }
-
-            .navbar-brand i {
-                margin-right: 8px;
-            }
-
-        .nav-link {
-            color: #003366 !important; /* Xanh dương đậm */
-            font-weight: 500;
-            padding: 8px 18px;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-            .nav-link:hover {
-                color: #0073e6 !important; /* Xanh dương sáng khi hover */
-                background: #e6f7ff;
-                border-radius: 5px;
-            }
-
-            .nav-link::after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 2px;
-                bottom: 4px;
-                left: 18px;
-                background: #003366;
-                transition: width 0.3s ease;
-            }
-
-            .nav-link:hover::after {
-                width: calc(100% - 36px);
-            }
-
-        .navbar-center .nav-link {
-            color: #003366 !important; /* Xanh dương đậm */
-        }
-
-            .navbar-center .nav-link:hover {
-                color: #0073e6 !important; /* Xanh dương sáng khi hover */
-            }
-
-        .navbar-text {
-            color: #003366;
-            font-size: 1rem;
-            margin-right: 12px;
-            font-style: italic;
-        }
-
-        .btn-sm {
-            padding: 8px 16px;
-            font-size: 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #0073e6, #003366); /* Màu xanh dương đậm */
-            border: none;
-            color: #fff;
-        }
-
-            .btn-primary:hover {
-                background: linear-gradient(135deg, #003366, #004b87); /* Màu xanh dương sáng khi hover */
-                transform: translateY(-2px);
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            }
-
-        .btn-danger {
-            background: linear-gradient(135deg,#0073e6, #003366);
-            border: none;
-            color: #fff;
-        }
-
-            .btn-danger:hover {
-                background: linear-gradient(135deg,#0073e6, #003366);
-                transform: translateY(-2px);
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            }
-
-        .navbar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        .navbar-center {
-            display: flex;
-            justify-content: center;
-            flex-grow: 1;
-        }
-
-            .navbar-center .navbar-nav {
-                display: flex;
-                justify-content: center;
-            }
-
-        .content-wrapper {
-            background: #ffffff;
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            margin: 40px auto;
-            max-width: 1300px;
-            min-height: 70vh;
-            transition: all 0.3s ease;
-        }
-
-            .content-wrapper:hover {
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-            }
-
-        .footer {
-            background: linear-gradient(135deg, #003366, #004b87); /* Màu xanh dương đậm */
-            color: #ffffff;
-            padding: 20px 0;
-            font-size: 0.9rem;
-            border-top: 3px solid #cce6ff; /* Màu sáng của xanh dương */
-            position: relative;
-        }
-
-            .footer .container {
-                max-width: 1300px;
-                margin: 0 auto;
-            }
-
-            .footer .row {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-start;
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-
-            .footer .contact-box, .footer .map-box, .footer .social-box {
-                flex: 1;
-                min-width: 200px;
-                padding: 15px;
-                text-align: center;
-            }
-
-                .footer .contact-box h2, .footer .map-box h3, .footer .social-box h3 {
-                    color: #ffffff;
-                    margin-bottom: 10px;
-                    font-weight: 600;
-                    font-size: 1.2rem;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 8px;
-                }
-
-                .footer .contact-box p {
-                    margin-bottom: 10px;
-                    font-size: 0.85rem;
-                }
-
-            .footer .contact-info {
-                list-style: none;
-                padding: 0;
-            }
-
-                .footer .contact-info li {
-                    margin-bottom: 8px;
-                    font-size: 0.85rem;
-                }
-
-                .footer .contact-info strong {
-                    color: #0073e6;
-                }
-
-                .footer .contact-info a {
-                    color: #ffffff;
-                    text-decoration: none;
-                    transition: color 0.3s ease;
-                }
-
-                    .footer .contact-info a:hover {
-                        color: #0073e6;
-                    }
-
-            .footer .social-links {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 5px;
-            }
-
-            .footer .social-btn {
-                display: flex;
-                align-items: center;
-                padding: 6px 12px;
-                background: #ffffff;
-                color: #003366;
-                text-decoration: none;
-                border-radius: 20px;
-                font-size: 0.75rem;
-                font-weight: 500;
-                transition: all 0.3s ease;
-            }
-
-                .footer .social-btn i {
-                    margin-right: 5px;
-                    font-size: 0.9rem;
-                }
-
-                .footer .social-btn:hover {
-                    transform: translateY(-2px);
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-                }
-
-                .footer .social-btn.instagram:hover {
-                    background: #e1306c;
-                    color: #fff;
-                }
-
-                .footer .social-btn.twitter:hover {
-                    background: #1da1f2;
-                    color: #fff;
-                }
-
-                .footer .social-btn.github:hover {
-                    background: #333;
-                    color: #fff;
-                }
-
-                .footer .social-btn.discord:hover {
-                    background: #7289da;
-                    color: #fff;
-                }
-
-            .footer .map-box iframe {
-                width: 100%;
-                height: 150px;
-                border-radius: 10px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            }
-
-            .footer::before {
-                content: '';
-                position: absolute;
-                top: -10px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 50px;
-                height: 2px;
-                background: #0073e6;
-            }
-
-            .footer .copyright {
-                text-align: center;
-                margin-top: 15px;
-                font-size: 0.75rem;
-                color: #ffffff;
-            }
-
-                .footer .copyright a {
-                    color: #0073e6;
-                    text-decoration: none;
-                    transition: color 0.3s ease;
-                }
-
-                    .footer .copyright a:hover {
-                        color: #fff;
-                    }
-
-        /* Chatbot Styles */
-        .chatbot-button {
-            position: fixed;
-            bottom: 20px;
-            right: 10px;
-            background: linear-gradient(135deg, #1e3a8a, #1d4ed8); /* Xanh dương đậm */
-            color: #fff;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-            .chatbot-button:hover {
-                background: linear-gradient(135deg, #1d4ed8, #2563eb); /* Xanh dương sáng */
-                transform: scale(1.1);
-                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            }
-
-            .chatbot-button i {
-                font-size: 1.5rem;
-            }
-
-        .chatbot-window {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            width: 350px;
-            max-height: 500px;
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-            .chatbot-window.open {
-                display: flex;
-            }
-
-        .chatbot-header {
-            background: linear-gradient(135deg, #1e3a8a, #1d4ed8); /* Xanh dương đậm */
-            color: #fff;
-            padding: 10px 15px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-            .chatbot-header i {
-                cursor: pointer;
-            }
-
-        .chatbot-body {
-            flex-grow: 1;
-            padding: 15px;
-            overflow-y: auto;
-            background: #e0f2ff; /* Màu nền nhẹ cho khu vực tin nhắn */
-        }
-
-        .chatbot-message {
-            margin-bottom: 10px;
-            padding: 8px 12px;
-            border-radius: 10px;
-            max-width: 80%;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-            .chatbot-message.user {
-                background: #1d4ed8; /* Màu xanh dương đậm */
-                color: #fff;
-                margin-left: auto;
-                border-bottom-right-radius: 2px;
-            }
-
-            .chatbot-message.bot {
-                background: #ffffff;
-                color: #1d4ed8; /* Màu xanh dương đậm */
-                border-bottom-left-radius: 2px;
-            }
-
-            .chatbot-message.loading {
-                background: #e0f2ff; /* Màu nền nhẹ cho tin nhắn đang tải */
-                color: #1d4ed8; /* Xanh dương đậm */
-                font-style: italic;
-            }
-
-            .chatbot-message.error {
-                background: #f8d7da;
-                color: #721c24;
-                border: 1px solid #f5c6cb;
-            }
-
-        .chatbot-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .chatbot-option-btn {
-            background: #ffffff;
-            color: #1d4ed8; /* Xanh dương đậm */
-            border: 1px solid #1d4ed8;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-            .chatbot-option-btn:hover {
-                background: #1d4ed8; /* Màu xanh dương đậm khi hover */
-                color: #fff;
-                transform: translateY(-1px);
-            }
-
-        .chatbot-footer {
-            padding: 10px;
-            background: #ffffff;
-            border-top: 1px solid #e0f2ff; /* Màu nền nhẹ cho chân chatbot */
-        }
-
-        .chatbot-input {
-            width: 100%;
-            padding: 8px 12px;
-            border: 1px solid #1d4ed8; /* Xanh dương đậm */
-            border-radius: 20px;
-            font-size: 0.9rem;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-            .chatbot-input:focus {
-                border-color: #2563eb; /* Xanh dương sáng khi focus */
-                box-shadow: 0 0 5px rgba(38, 99, 235, 0.3);
-            }
-
-        .chatbot-send-btn {
-            background: #1d4ed8; /* Xanh dương đậm */
-            color: #fff;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            margin-left: 5px;
-            transition: all 0.3s ease;
-        }
-
-            .chatbot-send-btn:hover {
-                background: #2563eb; /* Xanh dương sáng khi hover */
-                transform: translateY(-1px);
-            }
-    </style>
 </head>
 <body>
     <header>
@@ -503,7 +17,6 @@
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <i class="fas fa-building"></i> APT Management
                 </a>
-                @await Component.InvokeAsync("Weather")
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -564,20 +77,44 @@
                 </div>
             </div>
         </nav>
-      
-
-
-
     </header>
 
-    <div class="container">
-        <div class="content-wrapper">
-            <main role="main" class="pb-4">
-                @RenderBody()
-            </main>
-        </div>
+    <div class="main-content">
+        <main role="main" class="pb-4">
+            @RenderBody()
+        </main>
     </div>
-    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="contact-box">
+                    <h2><i class="fas fa-address-book"></i> Liên Hệ</h2>
+                    <ul class="contact-info">
+                        <li><strong>Địa chỉ:</strong> 123 Đường ABC, Quận 1, TP.HCM</li>
+                        <li><strong>Email:</strong> <a href="mailto:contact@aptmanagement.com">contact@aptmanagement.com</a></li>
+                        <li><strong>Điện thoại:</strong> <a href="tel:+842838123456">+84 283 812 3456</a></li>
+                    </ul>
+                </div>
+                <div class="map-box">
+                    <h3><i class="fas fa-map-marker-alt"></i> Bản Đồ</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.447!2d106.698084!3d10.776389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2zMTDCsTA0JzQyLjAiTiAxMDbCsDQxJzUzLjEiRQ!5e0!3m2!1svi!2s!4v1634567890123" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="social-box">
+                    <h3><i class="fas fa-share-alt"></i> Kết Nối Với Chúng Tôi</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                        <a href="#" class="social-btn github"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="#" class="social-btn discord"><i class="fab fa-discord"></i> Discord</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 APT Management. Developed by <a href="#">Your Team</a>.
+            </div>
+        </div>
+    </footer>
 
     <!-- Chatbot Button -->
     <div class="chatbot-button" id="chatbotToggle">

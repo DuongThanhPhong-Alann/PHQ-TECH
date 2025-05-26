@@ -1,5 +1,14 @@
 ﻿@model QLCCCC.Models.NguoiDung
-
+    .edit-apartment-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+<div class="edit-apartment-container">
 <h2>Edit User</h2>
 
 <form asp-action="Edit" method="post">
@@ -44,3 +53,4 @@
     </div>
     <button type="submit" class="btn btn-primary">Save Changes</button>
 </form>
+</div>
