@@ -1,31 +1,12 @@
 ﻿@if (ViewBag.City != null)
 {
     var iconUrl = "http://openweathermap.org/img/wn/" + ViewBag.Icon + "@2x.png";
-    <div style="
-        position: fixed;
-        bottom: 10px;
-        left: 10px;
-        color: black;
-        padding: 4px 6px;
-        font-size: 9px;
-        width: max-content;
-        max-width: 200px;
-        border-radius: 6px;
-        display: flex;
-        align-items: flex-start;
-        font-family: Arial, sans-serif;
-        background-color: transparent;
-        z-index: 9999;
-    ">
-        <div style="margin-right: 6px; flex-shrink: 0;">
-            <img src="@iconUrl" alt="weather icon" style="width: 28px; height: 28px;" />
-        </div>
-        <div style="line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-            <div style="font-weight: bold; font-size: 10px; margin-bottom: 2px;">🌤 @ViewBag.City</div>
-            <div><strong>Nhiệt độ:</strong> @ViewBag.Temp°C</div>
-            <div><strong>Cảm giác:</strong> @ViewBag.FeelsLike°C</div>
-            <div><strong>Độ ẩm:</strong> @ViewBag.Humidity%</div>
-            <div><strong>Trạng thái:</strong> @ViewBag.Description</div>
-        </div>
+    <div style="display: flex; gap: 16px; align-items: center; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+        <img src="@iconUrl" alt="Weather Icon" style="height: 28px;" />
+        <div style="font-weight: bold; font-size: 18px;">🌤 @ViewBag.City</div>
+        <div><strong>Nhiệt độ:</strong> @ViewBag.Temp°C</div>
+        <div><strong>Cảm giác:</strong> @ViewBag.FeelsLike°C</div>
+        <div><strong>Độ ẩm:</strong> @ViewBag.Humidity%</div>
+        <div><strong>Trạng thái:</strong> @ViewBag.Description</div>
     </div>
 }

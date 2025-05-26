@@ -9576,23 +9576,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lemin\\.nuget\\packages\\": {},
+    "C:\\Users\\duong\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\lemin\\Documents\\APT\\APT\\APT\\APT\\APT.csproj",
+      "projectUniqueName": "C:\\Users\\duong\\Downloads\\PHQ-TECH-main (4)\\PHQ-TECH-main\\APT\\APT\\APT.csproj",
       "projectName": "APT",
-      "projectPath": "D:\\lemin\\Documents\\APT\\APT\\APT\\APT\\APT.csproj",
-      "packagesPath": "C:\\Users\\lemin\\.nuget\\packages\\",
-      "outputPath": "D:\\lemin\\Documents\\APT\\APT\\APT\\APT\\obj\\",
+      "projectPath": "C:\\Users\\duong\\Downloads\\PHQ-TECH-main (4)\\PHQ-TECH-main\\APT\\APT\\APT.csproj",
+      "packagesPath": "C:\\Users\\duong\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\duong\\Downloads\\PHQ-TECH-main (4)\\PHQ-TECH-main\\APT\\APT\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\lemin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\duong\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9601,7 +9601,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9618,9 +9617,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
+        "auditMode": "all"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -9688,7 +9687,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

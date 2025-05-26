@@ -1,5 +1,15 @@
 ﻿@model QLCCCC.Models.HoaDonDichVu
-
+<style>
+    .edit-apartment-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+<div class="edit-apartment-container">
 <h2>Bạn có chắc chắn muốn xóa hóa đơn này không?</h2>
 
 <p><strong>ID:</strong> @Model.ID</p>
@@ -25,3 +35,4 @@
     <button type="submit" class="btn btn-danger">Xóa</button>
     <a asp-action="Index" class="btn btn-secondary">Hủy</a>
 </form>
+</div>
