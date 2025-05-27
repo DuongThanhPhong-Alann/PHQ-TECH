@@ -1,12 +1,44 @@
 ﻿@if (ViewBag.City != null)
 {
     var iconUrl = "http://openweathermap.org/img/wn/" + ViewBag.Icon + "@2x.png";
-    <div style="display: flex; gap: 16px; align-items: center; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-        <img src="@iconUrl" alt="Weather Icon" style="height: 28px;" />
-        <div style="font-weight: bold; font-size: 18px;">🌤 @ViewBag.City</div>
-        <div><strong>Nhiệt độ:</strong> @ViewBag.Temp°C</div>
-        <div><strong>Cảm giác:</strong> @ViewBag.FeelsLike°C</div>
-        <div><strong>Độ ẩm:</strong> @ViewBag.Humidity%</div>
-        <div><strong>Trạng thái:</strong> @ViewBag.Description</div>
+    <style>
+        .weather-container {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: Arial, sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, #d32f2f, #0288d1, #0277bd);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4), -1px -1px 2px rgba(255, 255, 255, 0.4);
+        }
+
+        .weather-container img {
+            height: 28px;
+        }
+
+        .weather-container div {
+            font-size: 18px;
+        }
+
+        .weather-container strong {
+            font-weight: bold;
+        }
+    </style>
+    <div class="weather-container">
+        <img src="@iconUrl" alt="Weather Icon" />
+        <div class="gradient-text">🌤@ViewBag.City</div>
+        <div><strong class="gradient-text">Nhiệt độ:</strong> <span class="gradient-text">@ViewBag.Temp°C</span></div>
+        <div><strong class="gradient-text">Cảm giác:</strong> <span class="gradient-text">@ViewBag.FeelsLike°C</span></div>
+        <div><strong class="gradient-text">Độ ẩm:</strong> <span class="gradient-text">@ViewBag.Humidity%</span></div>
+        <div><strong class="gradient-text">Trạng thái:</strong> <span class="gradient-text">@ViewBag.Description</span></div>
     </div>
 }
