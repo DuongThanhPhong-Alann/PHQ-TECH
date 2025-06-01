@@ -87,6 +87,7 @@
             }
         </div>
     }
+    <div id="password-alert" class="alert alert-danger d-none" role="alert"></div>
 
     <form asp-controller="Auth" asp-action="Register" method="post">
         <div class="form-group">
@@ -120,7 +121,25 @@
         Đã có tài khoản? <a asp-action="Login">Đăng nhập</a>
     </p>
 </div>
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.querySelector("form").addEventListener("submit", function (e) {
+            const password = document.querySelector("input[name='MatKhau']").value;
+            const alertBox = document.getElementById("password-alert");
+            const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+
+            if (!pattern.test(password)) {
+                e.preventDefault();
+                alertBox.textContent = "Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.";
+                alertBox.classList.remove("d-none");
+
+                setTimeout(() => {
+                    alertBox.classList.add("d-none");
+                }, 3000); // 3 giây
+            }
+        });
+    </script>
 }
+

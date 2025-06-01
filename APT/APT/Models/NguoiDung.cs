@@ -13,6 +13,7 @@ namespace QLCCCC.Models
         public string Email { get; set; } = string.Empty;
 
         [Required]
+
         public string MatKhau { get; set; } = string.Empty; // Cần mã hóa khi lưu
 
         [Required]

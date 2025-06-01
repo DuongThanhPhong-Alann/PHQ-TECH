@@ -216,6 +216,7 @@ wwwroot\images\The Manor.jpg
 wwwroot\images\the manor_0da89c87-7576-4315-84fd-383493723fd6.webp
 wwwroot\images\The Vista An Phú.jpg
 wwwroot\images\the-river-thu-thiem-1-6903_11de9de9-958d-461e-ab10-79693cc1393c.jpg
+wwwroot\images\tin tức vinhome1_f2e2bd17-c9c1-4a20-ab9e-b51072e12379.jpeg
 wwwroot\images\Tintuc.jpg
 wwwroot\images\Tintuc\avatar1742540097917-1742540098589778770015.webp
 wwwroot\images\Tintuc\bluegem.webp
@@ -230,6 +231,7 @@ wwwroot\images\Tintuc\smart-scaled3006202413321237-22320689-1742982406582-174298
 wwwroot\images\Tintuc\SUNRISE RIVERSIDE.jpg
 wwwroot\images\Tintuc\the manor.webp
 wwwroot\images\Tintuc\the-river-thu-thiem-1-6903.jpg
+wwwroot\images\tintuc2_fd410068-85e0-4a83-8079-3df1ae6eaf13.webp
 wwwroot\images\vesinh.jpg
 wwwroot\images\Vinhome Central Park.png
 wwwroot\js\site.js
@@ -298,12 +300,15 @@ wwwroot\uploads\phananh\1acf57c3-985a-43b6-913c-e5fe4b6a36f6_z4554616459793_cadb
 wwwroot\uploads\phananh\1f392da8-0eb5-48b1-80bd-df5981c65940_z4554616459793_cadb39179089edb900dd0734f7bd503c.jpg
 wwwroot\uploads\phananh\25879099-2db7-44e5-8d4a-08d65032cf05_êêê3.png
 wwwroot\uploads\phananh\27ad6f9f-1628-4825-982f-b6f3246050db_2025-02-12.png
+wwwroot\uploads\phananh\2f569ac6-fdf1-4650-9bdb-eed0fdc2ecbd_z4554616459793_cadb39179089edb900dd0734f7bd503c.jpg
 wwwroot\uploads\phananh\41c676c6-8206-4d8c-b6d4-430d0fffad99_avt.png
 wwwroot\uploads\phananh\443ea37a-c5ab-4448-9e9b-d88df7a19d45_z4554616459793_cadb39179089edb900dd0734f7bd503c.jpg
 wwwroot\uploads\phananh\4b6d1b34-a40b-418a-9bc6-c809666e912d_2025-02-12.png
 wwwroot\uploads\phananh\60205b92-4d40-4545-bda3-d3e7b173212f_qr.jpg
 wwwroot\uploads\phananh\65234d55-3444-4906-a286-112863a0bd00_2025-02-12.png
 wwwroot\uploads\phananh\6bdf01f7-6b8e-446a-a937-560c9fcd1840_z5648290486063_34e1aebfcccf7fb53f06172788cca215.jpg
+wwwroot\uploads\phananh\6f589936-8bb9-455d-be07-4f3141c7cae5_qr.jpg
+wwwroot\uploads\phananh\73ad65d7-0ef6-4f5f-9d1e-17f837a90dee_logohutech.jpg
 wwwroot\uploads\phananh\77ed66e8-0b9a-4d05-82d0-7e71aeb5e918_4c2.jpg
 wwwroot\uploads\phananh\79dea716-65ec-429b-9ca5-46c81f608d3d_z4554616459793_cadb39179089edb900dd0734f7bd503c.jpg
 wwwroot\uploads\phananh\82c981bc-69bf-48ef-8b47-4070f427cf95_z4548681871978_8d66e28e9a066a4595636872fbc5c08d.jpg
@@ -316,6 +321,7 @@ wwwroot\uploads\phananh\d5c8956c-b841-409a-b70e-ea33fb3b0e35_z4554616459793_cadb
 wwwroot\uploads\phananh\e1d6a659-9fd1-45e7-9530-4956c1b49223_chungnha_5.jpg
 wwwroot\uploads\phananh\e4c18169-400c-4204-96af-5dc7ef6ead66_qr.jpg
 wwwroot\uploads\phananh\e90b0b4e-901a-45cd-9d8e-2543c5024209_z4554616459793_cadb39179089edb900dd0734f7bd503c.jpg
+wwwroot\uploads\phananh\f0093c2c-6ccc-48e1-8f4e-a9ac47830c72_logohutech.jpg
 wwwroot\uploads\phananh\f0fe9301-f74c-4198-aedb-47e9d9f0440a_qr.jpg
 wwwroot\uploads\phananh\f29c5cd2-eb95-4b9f-8aed-f8a06c60df8b_qr.jpg
 wwwroot\uploads\phananh\f7f203c1-c808-428d-becd-fcb0a10e3cbf_z4554616459793_cadb39179089edb900dd0734f7bd503c.jpg
