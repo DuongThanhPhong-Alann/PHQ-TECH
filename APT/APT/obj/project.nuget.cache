@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TOx3V2ayUc8=",
+  "dgSpecHash": "v2qHqyYXzZs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\duong\\Downloads\\PHQ-TECH-main (4)\\PHQ-TECH-main\\APT\\APT\\APT.csproj",
+  "projectFilePath": "C:\\Users\\duong\\APT\\APT\\APT.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\duong\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
