@@ -24,7 +24,7 @@ builder.Services.AddScoped<ICanHoRepository, CanHoRepository>();
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 builder.Services.AddTransient<IEmailService, EmailService>();
 
-
+builder.Services.AddHttpClient();
 // Thêm dịch vụ MVC
 builder.Services.AddControllersWithViews();
 

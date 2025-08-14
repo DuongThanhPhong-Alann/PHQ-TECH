@@ -9581,11 +9581,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\duong\\APT\\APT\\APT.csproj",
+      "projectUniqueName": "C:\\PHQ-TECH\\APT\\APT\\APT.csproj",
       "projectName": "APT",
-      "projectPath": "C:\\Users\\duong\\APT\\APT\\APT.csproj",
+      "projectPath": "C:\\PHQ-TECH\\APT\\APT\\APT.csproj",
       "packagesPath": "C:\\Users\\duong\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\duong\\APT\\APT\\obj\\",
+      "outputPath": "C:\\PHQ-TECH\\APT\\APT\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\duong\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -9680,7 +9680,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
