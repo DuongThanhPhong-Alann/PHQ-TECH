@@ -1,4 +1,4 @@
-# APT-CONNECT: Hệ Thống Quản Lý và Trải Nghiệm Chung Cư
+# APT-CONNECT (PHQ-TECH): Hệ Thống Quản Lý và Trải Nghiệm Chung Cư
 
 **Giảng viên hướng dẫn:** Trần Đăng Khoa  
 **Ngành:** Công Nghệ Thông Tin — **Chuyên ngành:** Công Nghệ Phần Mềm
@@ -8,126 +8,114 @@
 - Lê Minh Hiếu — 2280600947 — 22DTHD4
 - Trương Vệ Quang — 2280602568 — 22DTHD4
 
-## 1) Giới thiệu
-APT-CONNECT là giải pháp hỗ trợ **quản lý chung cư** và **tương tác cư dân** theo hướng số hóa, minh bạch, dễ theo dõi.
+## 1) Tổng quan
+APT-CONNECT là giải pháp số hóa việc **quản lý chung cư** và **tương tác cư dân** (thông tin căn hộ, dịch vụ, hóa đơn, phản ánh, tin tức, chat, 3D…).
 
-Repo hiện có 2 phần chính:
-- **Web quản trị/tra cứu (ASP.NET Core MVC)**: phục vụ vận hành, quản trị dữ liệu, xử lý nghiệp vụ quản lý chung cư.
-- **Mobile (Flutter)**: tập trung trải nghiệm người dùng trên điện thoại (tra cứu, dịch vụ, hóa đơn, phản ánh, chat), sử dụng Supabase làm backend (PostgreSQL + Storage + Realtime).
+Repo hiện gồm **3 phần** tương ứng 3 thư mục:
+- `APT/`: **Web version 1** (ASP.NET Core MVC + SQL Server)
+- `apt_apartment/`: **App mobile** (Flutter + Supabase)
+- `APT_DACN/`: **Web version 2** (Node.js/TypeScript + React + Supabase)
 
-## 2) Bối cảnh & mục tiêu
-Xuất phát từ nhu cầu thực tế về nền tảng quản lý chung cư hiệu quả, APT-CONNECT hướng tới:
-- Tăng hiệu quả giao tiếp giữa ban quản lý và cư dân
-- Quản lý thông tin chung cư/căn hộ/dịch vụ tập trung
-- Theo dõi dịch vụ, hóa đơn, phản ánh minh bạch theo trạng thái
-- Cải thiện trải nghiệm người dùng với các tính năng hiện đại: 3D, chatbot, thông báo/email, chat nội khu
-
-## 3) Kiến trúc kỹ thuật (tổng quan)
-### 3.1 Web (ASP.NET Core MVC)
-- Nền tảng: ASP.NET Core MVC (`.NET 9`)
-- ORM: Entity Framework Core
-- Database: SQL Server (script khởi tạo: `APT/QLCC.sql`)
-- Xác thực: Cookie Authentication
-- Tích hợp:
-  - **Email SMTP** (gửi thông báo/xác nhận/khôi phục)
-  - **Chatbot** qua Google Dialogflow (API `api/ChatBot`)
-
-### 3.2 Mobile (Flutter)
-- Nền tảng: Flutter (Dart SDK theo `apt_apartment/apt_apartment/pubspec.yaml`)
-- Backend-as-a-Service: **Supabase** (PostgreSQL + Storage + stream/realtime)
-- Một số package chính: `supabase_flutter`, `shared_preferences`, `file_picker`, `webview_flutter`, `cached_network_image`, `intl`...
-- 3D: mở URL mô hình 3D bằng WebView
-
-## 4) Phân quyền người dùng (nghiệp vụ)
-### A. Khách hàng (truy cập cơ bản)
+## 2) Phân quyền người dùng (nghiệp vụ)
+### 2.1 Khách (truy cập cơ bản)
 - Tra cứu thông tin chung cư
 - Xem danh sách/chi tiết căn hộ
 - Xem dịch vụ
 - Đọc tin tức/sự kiện
 
-### B. Cư dân (quyền nâng cao)
-- Toàn bộ chức năng của khách hàng
+### 2.2 Cư dân (quyền nâng cao)
+- Toàn bộ chức năng của khách
 - Đăng ký dịch vụ
 - Theo dõi hóa đơn
 - Gửi phản ánh (có thể kèm hình ảnh)
 - Cập nhật thông tin cá nhân
-- Tham gia chat (chat chung chung cư và chat riêng cư dân)
+- Tham gia chat (tuỳ phiên bản)
 
-### C. Quản trị viên / Ban quản lý (admin)
-- Quản lý hệ thống toàn diện
-- Thêm/sửa/xóa dữ liệu: chung cư, căn hộ, dịch vụ, tin tức, người dùng...
+### 2.3 Ban quản lý / Admin
+- Quản lý dữ liệu: chung cư, căn hộ, dịch vụ, tin tức, người dùng…
 - Duyệt/đối soát hóa đơn, xử lý phản ánh
-- Quản lý chủ hộ/cư dân theo căn hộ
+- Quản lý cư dân/chủ hộ theo căn hộ
 
-## 5) Tính năng nổi bật
-### 5.1 Email tự động (Web)
-- Thông báo phản ánh
-- Xác nhận đăng ký dịch vụ
-- Khôi phục mật khẩu
+## 3) `APT/` — Web version 1 (ASP.NET Core MVC + SQL Server)
+### 3.1 Công nghệ
+- ASP.NET Core MVC (`.NET 9`), Entity Framework Core
+- SQL Server (script: `APT/QLCC.sql`)
+- Cookie Authentication
+- Tích hợp: Email SMTP, Chatbot Dialogflow (tuỳ cấu hình)
 
-### 5.2 Mô hình 3D căn hộ (Web + Mobile)
-- Dữ liệu mô hình 3D được tạo từ SketchUp và lưu dưới dạng URL (hoặc tài nguyên liên kết)
-- Mobile hỗ trợ mở mô hình qua WebView (màn hình xem 3D)
+### 3.2 Cấu trúc liên quan
+- Source web: `APT/APT/`
+- Cấu hình: `APT/APT/appsettings.json`
+- Script DB: `APT/QLCC.sql`
 
-### 5.3 Chatbot hỗ trợ trực tuyến (Web)
-- Tích hợp Dialogflow để trả lời câu hỏi/định hướng thao tác
-- Có thể cấu hình chế độ bypass để phát triển/thử nghiệm
+### 3.3 Chạy Web v1
+**Yêu cầu:** .NET SDK 9.x, SQL Server
+```bash
+cd APT/APT
+dotnet restore
+dotnet run
+```
+Gợi ý: tạo DB bằng `APT/QLCC.sql` và cập nhật `ConnectionStrings:DefaultConnection` trong `APT/APT/appsettings.json`.
 
-### 5.4 Mobile app (Flutter) – phần mới bổ sung
-Các nhóm màn hình chính trong app (tham khảo code tại `apt_apartment/apt_apartment/lib/frontend/src/...`):
-- **Xác thực & hồ sơ**: đăng nhập/đăng ký, xem/cập nhật thông tin cá nhân
-- **Trang chủ**: điều hướng nhanh tới các phân hệ
-- **Chung cư & căn hộ**: xem danh sách, xem chi tiết, ảnh minh họa
-- **3D Viewer**: mở mô hình 3D căn hộ bằng URL
-- **Dịch vụ**: xem dịch vụ, cư dân có thể đăng ký dịch vụ (tạo hóa đơn dịch vụ)
-- **Hóa đơn**: xem danh sách hóa đơn theo cư dân/căn hộ, cập nhật theo luồng dữ liệu
-- **Phản ánh**: tạo phản ánh, theo dõi trạng thái, xem phản hồi (có thể đính kèm ảnh)
-- **Chat**:
-  - Chat chung theo chung cư
-  - Chat riêng giữa cư dân
-  - Theo dõi tin nhắn theo dạng stream (realtime)
+## 4) `apt_apartment/` — App mobile (Flutter + Supabase)
+### 4.1 Công nghệ
+- Flutter (Dart)
+- Supabase (PostgreSQL + Storage + Realtime/stream)
+- 3D viewer: mở URL mô hình 3D bằng WebView
 
-## 6) Cấu trúc thư mục trong repo
-- `APT/`: Web ASP.NET Core MVC + SQL Server
-  - `APT/APT/`: source chính của web app (`Program.cs`, `Controllers/`, `Views/`, ...)
-  - `APT/QLCC.sql`: script tạo database SQL Server
-- `apt_apartment/`: Mobile Flutter + Supabase
-  - `apt_apartment/apt_apartment/`: source Flutter app
-  - `apt_apartment/sql`: schema & seed data cho Supabase
+### 4.2 Tính năng chính (mobile)
+- Đăng nhập/đăng ký, quản lý phiên (local)
+- Xem chung cư, căn hộ, chi tiết căn hộ + media
+- Xem mô hình 3D căn hộ (WebView)
+- Xem dịch vụ, cư dân đăng ký dịch vụ
+- Xem hóa đơn theo cư dân/căn hộ
+- Gửi phản ánh (có thể đính kèm ảnh), theo dõi trạng thái/phản hồi
+- Chat (chat chung chung cư + chat riêng), nhận tin nhắn theo stream
 
-## 7) Hướng dẫn chạy dự án
-### 7.1 Chạy Web (ASP.NET Core MVC)
-**Yêu cầu**
-- .NET SDK 9.x
-- SQL Server
+### 4.3 Cấu trúc liên quan
+- Source Flutter: `apt_apartment/apt_apartment/`
+- Schema Supabase: `apt_apartment/sql`
+- Cấu hình Supabase: `apt_apartment/apt_apartment/lib/supabase_options.dart`
 
-**Bước chạy nhanh**
-1. Tạo database bằng script: `APT/QLCC.sql`
-2. Cập nhật connection string trong `APT/APT/appsettings.json` (mục `ConnectionStrings:DefaultConnection`)
-3. Chạy project:
-   - `cd APT/APT`
-   - `dotnet restore`
-   - `dotnet run`
+### 4.4 Chạy mobile
+**Yêu cầu:** Flutter SDK, Android Studio (hoặc Xcode nếu chạy iOS), 01 project Supabase
+```bash
+cd apt_apartment/apt_apartment
+flutter pub get
+flutter run
+```
+Gợi ý: chạy schema/seed trong `apt_apartment/sql` trên Supabase SQL Editor và cập nhật `supabase_options.dart` (URL + anon key).
 
-### 7.2 Chạy Mobile (Flutter)
-**Yêu cầu**
-- Flutter SDK
-- Android Studio (hoặc Xcode nếu chạy iOS)
-- Một project Supabase (URL + anon key)
+## 5) `APT_DACN/` — Web version 2 (Node.js/TypeScript + React + Supabase)
+Web v2 là bản rewrite theo hướng tách **backend API** và **frontend SPA**:
+- Backend: `APT_DACN/src/` (Express + TypeScript) — API prefix `/api`
+- Frontend: `APT_DACN/client/` (Vite + React + TypeScript)
+- Database/Storage: Supabase (Postgres + Storage)
 
-**Thiết lập Supabase**
-1. Tạo project trên Supabase
-2. Chạy schema & seed: `apt_apartment/sql` (Supabase SQL editor)
-3. (Tuỳ chọn) Tạo bucket Storage tên `apt-assets` và cấu hình policy phù hợp cho upload/đọc ảnh
+### 5.1 Chạy backend (API)
+**Yêu cầu:** Node.js (khuyến nghị 18+/20+)
+```bash
+cd APT_DACN
+copy .env.example .env
+npm install
+npm run dev
+```
+- Port mặc định: `4000` (theo `APT_DACN/.env.example`)
+- Cần điền các biến Supabase/JWT trong `.env` (ví dụ: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `JWT_SECRET`, …)
 
-**Chạy ứng dụng**
-1. Cập nhật `apt_apartment/apt_apartment/lib/supabase_options.dart` theo Supabase của bạn
-2. Chạy:
-   - `cd apt_apartment/apt_apartment`
-   - `flutter pub get`
-   - `flutter run`
+### 5.2 Chạy frontend (UI)
+```bash
+cd APT_DACN/client
+npm install
+npm run dev
+```
+- UI mặc định chạy tại `http://localhost:5173`
 
-## 8) Thách thức & hướng phát triển
-- Bảo mật thông tin (quản lý secrets cấu hình, phân quyền dữ liệu, audit)
-- Tối ưu trải nghiệm người dùng (độ mượt UI, offline-first, tối ưu tải ảnh)
+### 5.3 Gợi ý cấu hình Supabase cho web v2
+- Tạo bucket Storage (ví dụ `apt-assets`) theo biến `SUPABASE_STORAGE_BUCKET`
+- Backend hỗ trợ upload ảnh lên Supabase Storage và lưu **public URL** vào DB
+
+## 6) Thách thức & hướng phát triển
+- Bảo mật thông tin (quản lý secrets `.env`/`appsettings.json`, phân quyền dữ liệu)
+- Tối ưu UX/UI (mobile + web), tối ưu tải ảnh/media
 - Mở rộng tích hợp dịch vụ thông minh (IoT, thanh toán, thông báo đẩy, v.v.)
