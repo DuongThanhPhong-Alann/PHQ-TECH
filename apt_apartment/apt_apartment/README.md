@@ -1,16 +1,30 @@
-# apt_apartment
+# APT-CONNECT Mobile (Flutter)
 
-A new Flutter project.
+Mobile app của dự án APT-CONNECT (tra cứu chung cư/căn hộ, dịch vụ, hóa đơn, phản ánh, chat) được xây bằng Flutter và sử dụng Supabase làm backend.
 
-## Getting Started
+## Thư mục
+- Source Flutter: `apt_apartment/apt_apartment`
+- Schema Supabase: `apt_apartment/sql`
 
-This project is a starting point for a Flutter application.
+## Yêu cầu
+- Flutter SDK
+- Android Studio (hoặc Xcode nếu chạy iOS)
+- 01 project Supabase (URL + anon key)
 
-A few resources to get you started if this is your first Flutter project:
+## Thiết lập Supabase
+1. Tạo project trên Supabase
+2. Mở SQL Editor và chạy file: `apt_apartment/sql`
+3. (Tuỳ chọn) Tạo bucket Storage tên `apt-assets` để upload/đọc ảnh
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Cấu hình app
+Sửa file `apt_apartment/apt_apartment/lib/supabase_options.dart` để trỏ tới Supabase của bạn (URL + anon key).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Chạy ứng dụng
+```bash
+cd apt_apartment/apt_apartment
+flutter pub get
+flutter run
+```
+
+## Tài liệu tổng quan
+Xem `README.md` ở root repo để biết kiến trúc tổng thể (Web + Mobile) và hướng dẫn chạy Web.
