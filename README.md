@@ -1,13 +1,12 @@
-# APT-CONNECT (PHQ-TECH): Hệ Thống Quản Lý và Trải Nghiệm Chung Cư
+# APT-CONNECT (APT-TECH): Hệ Sinh Thái Quản Lý Và Trãi Nghiệm Chung Cư
 
-**Giảng viên hướng dẫn:** Trần Đăng Khoa  
 **Ngành:** Công Nghệ Thông Tin — **Chuyên ngành:** Công Nghệ Phần Mềm
 
 **Sinh viên/nhóm thực hiện**
 - Dương Thanh Phong — 2280602345 — 22DTHD4
 - Lê Minh Hiếu — 2280600947 — 22DTHD4
 - Trương Vệ Quang — 2280602568 — 22DTHD4
-
+- Nguyễn Huỳnh Tường Vy - 2280603785 - 22DTHD4
 ## 1) Tổng quan
 APT-CONNECT là giải pháp số hóa việc **quản lý chung cư** và **tương tác cư dân** (thông tin căn hộ, dịch vụ, hóa đơn, phản ánh, tin tức, chat, 3D…).
 
